@@ -3,6 +3,7 @@ package handlers
 import (
 	"log"
 	"net/http"
+	"regexp"
 
 	"github.com/nicholasjackson/building-microservices-youtube/product-api/data"
 )
@@ -33,7 +34,10 @@ func (p *Products) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 
 	if r.Method == http.MethodPut {
 		// expect the id in the URI
+		r := regexp.MustCompile(`/([0-9]+)`)
+
 		p := r.URL.Path
+
 	}
 
 	// catch all
